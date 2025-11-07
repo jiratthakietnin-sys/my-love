@@ -1,0 +1,106 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffe4e1; /* สีชมพูอ่อนเหมือนในรูป */
+  overflow: hidden; /* ซ่อนส่วนที่เกินขอบเขตเมื่อปุ่ม 'No' ขยับ */
+}
+
+.container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+.result-container,
+.loader-container {
+  display: none; /* ซ่อนหน้าผลลัพธ์และโหลดเดอร์เริ่มต้น */
+}
+
+.image-box {
+  margin-bottom: 20px;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 200px; /* ปรับขนาดตามต้องการ */
+  height: auto;
+}
+
+h1 {
+  color: #ff69b4; /* สีชมพูเข้ม */
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: relative; /* สำคัญสำหรับการขยับปุ่ม 'No' */
+  height: 50px; /* กำหนดความสูงให้ปุ่ม 'No' ขยับได้ในขอบเขต */
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.yes {
+  background-color: #ffb6c1; /* ชมพูอ่อน */
+  color: white;
+}
+
+.yes:hover {
+  background-color: #ff69b4; /* ชมพูเข้ม */
+  transform: scale(1.05);
+}
+
+.no {
+  background-color: #f08080; /* แดงอ่อน */
+  color: white;
+  position: absolute; /* สำคัญ: เพื่อให้ขยับอิสระ */
+  top: 0;
+  left: 55%; /* ตำแหน่งเริ่มต้น */
+  transition: all 0.1s ease; /* เพื่อให้การขยับดูไม่กระตุก */
+}
+
+/* สไตล์สำหรับ Loader */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffe4e1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.heart-animation {
+  font-size: 5rem;
+  animation: pulse 1s infinite alternate; /* แอนิเมชันหัวใจเต้น */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
